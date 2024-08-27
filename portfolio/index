@@ -1,0 +1,74 @@
+<html>
+    <head>
+            <title>Index</title>
+            <style>
+                 ul,ol{list-style:none}
+                h1,h2,h3,h4,h5,h6,pre,code{font-size:1em;}
+                ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,body,html,p,blockquote,fieldset{
+                margin:0;padding:0;line-height:1; list-style:none;}
+                a img,:link img,:visited img, fieldset{border:none;}
+                input[type=submit], input[type=reset], input[type=button] { *filter:chroma(color=#000000); }  
+                body {padding:30px;font-family: 'Arial'; background-color: #959595; color:#676767; height:1200px}
+                h1 {font-size: 30px; font-family: 'Arial'; padding:30px}
+                h2 {color:#ffffff;font-size: 20px;}
+                a {text-decoration: none; color:#676767;}
+                .header-menu {position: relative;padding:35px;}
+                .productname1 {margin-bottom:20px;}
+                .product1 {position:absolute; text-align: center}
+                .product1img {height:400px;}
+                .productname2 {margin-left:620px; margin-top:-40px}
+                .product2{position: absolute; text-align: center; margin-left:600px; padding:20px}
+                .product2img {height: 400px}
+                .productname3 {margin-top:500px}
+                .product3{position: absolute; padding-top: 20px}
+                .product3img {height: 400px}
+                .productname4 { margin-left: 900px}
+                .product4{position: absolute; padding-top: 20px; margin-left: 850px}
+                .product4img {height: 350px}
+                
+               
+            </style>
+    </head>
+    <body>
+
+        <h1>
+            Geogalletly 
+        </h1>
+
+        <div class="header-menu">
+               
+            <h2 class="productname1">
+                <a href="natureeurope.html">Europe by drone</a>
+            </h2>
+                <p class="product1">
+                     <img class="product1img" src="europedrone.jpg"/>
+                </p>
+                   
+            <h2 class="productname2" >
+                <a href="danube.html">Danube River Basin District</a>
+            </h2>
+            <p class="product2">
+                <img class="product2img" src="danube.jpg"/>
+           </p>
+
+           <h2 class="productname3" >
+                <a href="ciudades.html">World Populated Cities</a>
+            </h2>
+            <p class="product3">
+                <img class="product3img" src="cities.jpg"/>
+           </p>
+           <h2 class="productname4" >
+                <a href="cementerio.html">Girona cemetery</a>
+            </h2>
+            <p class="product4">
+                <img class="product4img" src="cementerio.jpg"/>
+           </p>
+    
+
+        </div>
+       
+        
+    </body>
+    
+
+</html>
