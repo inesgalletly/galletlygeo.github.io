@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <title></title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.44.1/mapbox-gl.css' rel='stylesheet' />
+    <style>
+      
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      #map {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+
+  <div id='map'></div>
+  <script>
+    var pop=  ['1000000' , '2000000' , '3000000' , '4000000' , '10000000' , '20000000'];
+    var radiopop=  ['5', '10', '15', '20', '25', '30',];
+
+  mapboxgl.accessToken = 'pk.eyJ1IjoiZ2VvZ2FsbGV0bHkiLCJhIjoiY2pjamduNmpoMjU3bzJ3cGE0aHh1c3FtZSJ9.vNL1A8E0yH8ruhI2Ye-qwg';
+  var map = new mapboxgl.Map({
+    container: 'map', 
+    style: 'mapbox://styles/geogalletly/cjdaf4qq2as9w2squ0rv7rsr5', 
+    center: [-93.261, 44.971], 
+    zoom: 1
+  });
+
+  map.on('load', function() {
+    map.addLayer({
+      id: 'cities',
+      type: 'circle',
+      source: {
+        type: 'vector',
+        url: 'mapbox://geogalletly.cjduijxmm00ru32sbur1b8kuk-89shu'
+      },
+      'source-layer': 'ciudadesmundo',
+      paint: {
+        'circle-color': '#D49A66',
+        // Add data-driven styles for circle radius
+        'circle-radius': {
+          property: 'POP_MAX',
+          type: 'exponential',
+          stops: [
+            [1000000, 2],
+            [2000000, 5],
+            [3000000, 7],
+            [4000000, 10],
+            [10000000, 15],
+            [20000000, 20],
+            [30000000, 25]
+          ]
+        },
+        'circle-opacity': 0.8
+      } 
+      
+    });
+  });
+
+  </script>
+
+  </body>
+</html>

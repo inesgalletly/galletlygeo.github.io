@@ -1,0 +1,82 @@
+<html lang="es">
+
+<head>
+  <title>Danube River Basin District</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="autor" />
+  <meta name="description" content="descripción página">
+  <meta name="robots" content="index,follow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet.css" />
+  
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+      background-color: #ffffff
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet.js"></script>
+  
+  <script>
+    var map, osm, controlCapas;
+
+    function init() {
+      map = L.map('map', {
+        center: [51.431937, 1.313078],
+        zoom: 4
+      });
+
+     
+
+      osm = L.tileLayer('https://api.mapbox.com/styles/v1/geogalletly/cjdaf4qq2as9w2squ0rv7rsr5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2VvZ2FsbGV0bHkiLCJhIjoiY2pjamduNmpoMjU3bzJ3cGE0aHh1c3FtZSJ9.vNL1A8E0yH8ruhI2Ye-qwg', {
+        maxZoom: 19,
+        minZoom: 1,
+        attribution: '© Mapbox'
+      }).addTo(map);
+
+
+      var industrias =
+        L.tileLayer('https://api.mapbox.com/styles/v1/geogalletly/cjdue02mk54272snl9jylcui0/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2VvZ2FsbGV0bHkiLCJhIjoiY2pjamduNmpoMjU3bzJ3cGE0aHh1c3FtZSJ9.vNL1A8E0yH8ruhI2Ye-qwg', {
+          attribution: '© Mapbox'
+        });
+    
+        var rio =
+        L.tileLayer('https://api.mapbox.com/styles/v1/geogalletly/cjdugsiqe563q2ss3di5l80fe/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2VvZ2FsbGV0bHkiLCJhIjoiY2pjamduNmpoMjU3bzJ3cGE0aHh1c3FtZSJ9.vNL1A8E0yH8ruhI2Ye-qwg', {
+          attribution: '© Mapbox'
+        });
+
+        var wastewater =
+        L.tileLayer('https://api.mapbox.com/styles/v1/geogalletly/cjduh0wn256u72sp9j16sdpx5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2VvZ2FsbGV0bHkiLCJhIjoiY2pjamduNmpoMjU3bzJ3cGE0aHh1c3FtZSJ9.vNL1A8E0yH8ruhI2Ye-qwg', {
+          attribution: '© Mapbox'
+        });
+
+      var mapaBase = {
+        'Mapa': osm,
+        'Danube River':rio,
+        'Industries': industrias,
+        'Urban Wastewater Treatment': wastewater
+        
+      };
+
+      controlCapas = L.control.layers(mapaBase, null, {
+        collapsed: true
+      });
+      controlCapas.addTo(map)
+      
+                                                                            
+
+    
+    }
+  </script>
+</head>
+
+<body onLoad="init()">
+  <div id="map"></div>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<html lang="es">
+
+<head>
+  <title>Europe by drone</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="autor" />
+  <meta name="description" content="descripción página">
+  <meta name="robots" content="index,follow">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet.css" />
+  
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #map {
+      height: 100%;
+      width: 100%;
+      background-color: #ffffff
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.0/leaflet.js"></script>
+  
+  <script>
+    var map, osm, controlCapas;
+
+    function init() {
+      map = L.map('map', {
+        center: [51.431937, 1.313078],
+        zoom: 4
+      });
+
+     
+
+      osm = L.tileLayer('https://api.mapbox.com/styles/v1/geogalletly/cjdaf4qq2as9w2squ0rv7rsr5/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZ2VvZ2FsbGV0bHkiLCJhIjoiY2pjamduNmpoMjU3bzJ3cGE0aHh1c3FtZSJ9.vNL1A8E0yH8ruhI2Ye-qwg', {
+        maxZoom: 19,
+        minZoom: 1,
+        attribution: '© Mapbox'
+      }).addTo(map);
+
+
+      var Esri_WorldImagery =
+        L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+          attribution: 'Tiles © Esri'
+        });
+
+
+      var Hydda_RoadsAndLabels = L.tileLayer('https://{s}.tile.openstreetmap.se/hydda/roads_and_labels/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: 'OpenStreetMap'
+      });
+
+      var hibrida = L.layerGroup([Esri_WorldImagery, Hydda_RoadsAndLabels]);
+
+      var mapaBase = {
+        'Mapa': osm,
+        'Foto': hibrida
+      };
+
+      controlCapas = L.control.layers(mapaBase, null, {
+        collapsed: true
+      });
+      controlCapas.addTo(map)
+      
+      L.marker([48.690171, 8.195485]).addTo(map)
+      .bindPopup('<iframe width="200" height="200" src="https://www.youtube.com/embed/KLDxfmT_TQ8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                            
+                           
+     L.marker([49.125464, 0.244068]).addTo(map)
+      .bindPopup('<iframe width="200" height="200" src="https://www.youtube.com/embed/QYxH5-pBvCk" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                            
+                            
+     L.marker([51.431937, 1.313078]).addTo(map)
+      .bindPopup('<iframe width="200" height="200" src="https://www.youtube.com/embed/L6IaUL_LwxY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                           
+                          
+    
+     L.marker([45.487501, 34.485708]).addTo(map)
+      .bindPopup('<iframe width="200" height="200" src="https://www.youtube.com/embed/bNi2BR9Ggus" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                           
+                          
+
+     L.marker([48.868456, 2.281112]).addTo(map)
+      .bindPopup('<iframe width="200" height="200" src="https://www.youtube.com/embed/YPMOce2VdKQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+    
+    L.marker([65.237365, -18.841763]).addTo(map)
+      .bindPopup('<iframe width="200" height="200" src="https://www.youtube.com/embed/KcLuK5fgpzo" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                          
+    L.marker([42.870327, 18.048542]).addTo(map)
+      .bindPopup('<iframe width="200" height="200" src="https://www.youtube.com/embed/4tPG4z2HeXg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+
+
+     L.marker([61.589712, 8.119811]).addTo(map)
+      .bindPopup('<iframe width="200" height="200" src="https://www.youtube.com/embed/5OELwzahfMg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>');
+                                                                               
+
+    
+    }
+  </script>
+</head>
+
+<body onLoad="init()">
+  <div id="map"></div>
+</body>
+
+</html>
